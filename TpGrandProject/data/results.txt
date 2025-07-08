@@ -1,0 +1,112 @@
+Top 5 jobs les mieux payés en USD :
+Architect - 800000.00 USD
+Software Engineer - 800000.00 USD
+AI Architect - 800000.00 USD
+Data Engineer - 793136.00 USD
+Data Engineer - 793136.00 USD
+
+Salaire moyen par niveau d'expérience :
+EN : 94545.96 USD
+EX : 201714.77 USD
+MI : 141461.30 USD
+SE : 171576.84 USD
+
+Nombre de jobs par company_location :
+US : 73940
+CA : 3838
+GB : 2332
+AU : 401
+NL : 344
+FR : 280
+LT : 279
+DE : 275
+AT : 267
+SK : 201
+IN : 160
+ES : 141
+PL : 131
+IE : 103
+LV : 101
+MX : 82
+BR : 70
+PT : 58
+NZ : 55
+IT : 53
+AR : 53
+PH : 52
+FI : 48
+ZA : 45
+CH : 37
+SG : 33
+JP : 30
+CO : 29
+BE : 24
+EG : 20
+GR : 19
+TW : 17
+TR : 15
+CL : 15
+CZ : 13
+CY : 13
+JM : 12
+UA : 11
+EE : 11
+DK : 11
+RO : 10
+NG : 10
+KR : 10
+IL : 10
+HU : 10
+SE : 9
+PE : 9
+MT : 9
+LB : 9
+PR : 8
+NO : 8
+MK : 8
+SI : 7
+RU : 7
+LU : 7
+KE : 7
+ID : 6
+EC : 6
+CR : 6
+SV : 5
+HK : 5
+BG : 5
+AM : 5
+AE : 5
+RS : 4
+HR : 4
+DZ : 4
+AS : 4
+TH : 3
+SA : 3
+PK : 3
+MY : 3
+GH : 3
+DO : 3
+CD : 3
+XK : 2
+PA : 2
+LS : 2
+JO : 2
+HN : 2
+BA : 2
+ZM : 1
+VN : 1
+VE : 1
+QA : 1
+OM : 1
+MU : 1
+MD : 1
+IR : 1
+IQ : 1
+GI : 1
+CN : 1
+CF : 1
+BS : 1
+AD : 1
+
+Ratio des jobs 100% remote : 20.26%
+
