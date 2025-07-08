@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import jobRecord
+from .views import stats_view
 
 urlpatterns = [
-    path('', jobRecord),
+    path('', stats_view, name='stats_view'),
 ]
