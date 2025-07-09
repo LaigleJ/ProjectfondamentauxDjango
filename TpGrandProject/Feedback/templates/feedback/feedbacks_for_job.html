@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Feedbacks pour {{ job.job_title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 2rem;
+            background: #f4f7f8;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li strong {
+            color: #27ae60;
+            min-width: 50px;
+            text-align: center;
+            margin-right: 12px;
+        }
+        .comment-truncated {
+            flex: 1;
+            color: #555;
+            margin-right: 15px;
+        }
+        a {
+            color: #2980b9;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #1c5980;
+        }
+        .back-link {
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #4caf50;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Feedbacks pour le job : "{{ job_title }}"</h1>
+
+    <a href="{% url 'job_list' %}" class="back-link">← Retour à la liste des jobs</a>
+
+    <ul>
+        {% for feedback in feedbacks %}
+            <li>
+                <strong>{{ feedback.rating }}/5</strong>
+                <span class="comment-truncated">{{ feedback.comment|truncatewords:10 }}</span>
+                <a href="{% url 'feedback_detail' feedback.pk %}">Voir détails</a>
+            </li>
+        {% empty %}
+            <li>Aucun feedback pour ce job.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

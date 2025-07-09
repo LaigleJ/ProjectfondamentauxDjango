@@ -21,4 +21,5 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('jobRecord.urls')),  # Include the jobRecord app URLs
+    path('feedback/', include('Feedback.urls')),  # Include the Feedback app URLs
 ]

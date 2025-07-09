@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Feedbacks par corps de métier</h1>
+
+{% for job in jobs %}
+  <h2>{{ job.title }}</h2>
+  <ul>
+    {% for feedback in job.feedback_set.all %}
+      <li>{{ feedback.content }} - par {{ feedback.author }}</li>
+    {% empty %}
+      <li>Aucun feedback pour ce corps de métier.</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+</body>
+</html>

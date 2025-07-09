@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Ajouter un Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 1rem;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        button {
+            margin-top: 20px;
+            background-color: #4caf50;
+            border: none;
+            padding: 10px 16px;
+            color: white;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .errorlist {
+            color: red;
+            margin: 5px 0 0 0;
+            list-style: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ajouter un Feedback</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <label for="{{ form.job.id_for_label }}">Job :</label>
+        {{ form.job }}
+        {{ form.job.errors }}
+
+        <label for="{{ form.rating.id_for_label }}">Note (1 à 5) :</label>
+        {{ form.rating }}
+        {{ form.rating.errors }}
+
+        <label for="{{ form.comment.id_for_label }}">Commentaire :</label>
+        {{ form.comment }}
+        {{ form.comment.errors }}
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <p><a href="{% url 'feedback_list' %}">← Retour à la liste des feedbacks</a></p>
+
+</body>
+</html>

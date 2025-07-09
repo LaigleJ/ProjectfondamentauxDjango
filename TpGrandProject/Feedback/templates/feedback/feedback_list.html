@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des métiers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #f4f7f8;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .job-title {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .job-list {
+            margin-bottom: 20px;
+            border-left: 3px solid #3498db;
+            padding-left: 15px;
+            display: none;
+        }
+
+        .job-item {
+            margin: 10px 0;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .feedback-link {
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .feedback-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function toggleJobs(titleId) {
+            var list = document.getElementById(titleId);
+            list.style.display = list.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Liste des Métiers</h1>
+
+    {% regroup jobs by job_title as job_title_groups %}
+
+    {% for group in job_title_groups %}
+        <div class="job-title" onclick="toggleJobs('group-{{ forloop.counter }}')">
+            {{ group.grouper }} ▼
+        </div>
+        <div class="job-list" id="group-{{ forloop.counter }}">
+            {% for job in group.list %}
+                <div class="job-item">
+                    <strong>{{ job.job_title }}</strong> — {{ job.company_location }} ({{ job.work_year }})<br>
+                    <a class="feedback-link" href="{% url 'feedbacks_for_job' job.id %}">Voir les feedbacks</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+</body>
+</html>
