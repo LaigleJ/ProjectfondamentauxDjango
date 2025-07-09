@@ -4,7 +4,7 @@ from .models import Feedback
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        fields = ['job', 'rating', 'comment']  # adapte selon ton modèle
+        fields = ['job', 'rating', 'comment', 'author']  # adapte selon ton modèle
 
     def clean_rating(self):
         rating = self.cleaned_data.get('rating')

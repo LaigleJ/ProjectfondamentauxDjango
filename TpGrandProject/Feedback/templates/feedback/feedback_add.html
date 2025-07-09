@@ -51,25 +51,30 @@
     <h1>Ajouter un Feedback</h1>
 
     <form method="post">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        
-        <label for="{{ form.job.id_for_label }}">Job :</label>
-        {{ form.job }}
-        {{ form.job.errors }}
+    {% csrf_token %}
+    {{ form.non_field_errors }}
 
-        <label for="{{ form.rating.id_for_label }}">Note (1 à 5) :</label>
-        {{ form.rating }}
-        {{ form.rating.errors }}
+    <label for="{{ form.job.id_for_label }}">Job :</label>
+    {{ form.job }}
+    {{ form.job.errors }}
 
-        <label for="{{ form.comment.id_for_label }}">Commentaire :</label>
-        {{ form.comment }}
-        {{ form.comment.errors }}
+    <label for="{{ form.author.id_for_label }}">Auteur :</label>
+    {{ form.author }}
+    {{ form.author.errors }}
 
-        <button type="submit">Envoyer</button>
-    </form>
+    <label for="{{ form.rating.id_for_label }}">Note (1 à 5) :</label>
+    {{ form.rating }}
+    {{ form.rating.errors }}
 
-    <p><a href="{% url 'feedback_list' %}">← Retour à la liste des feedbacks</a></p>
+    <label for="{{ form.comment.id_for_label }}">Commentaire :</label>
+    {{ form.comment }}
+    {{ form.comment.errors }}
+
+    <button type="submit">Envoyer</button>
+</form>
+
+    <p><a href="{% url 'job_titles_list' %}">← Retour à la liste des 
+        jobs</a></p>
 
 </body>
 </html>

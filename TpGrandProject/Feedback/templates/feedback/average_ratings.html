@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Moyenne des notes par job</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Moyenne des notes par job</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Job</th>
+            <th>Moyenne des notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs_with_avg %}
+            <tr>
+                <td>{{ job.job_title }}</td>
+                <td>
+                  {% if job.avg_rating %}
+                    {{ job.avg_rating|floatformat:2 }}
+                  {% else %}
+                    Pas de feedback
+                  {% endif %}
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="2">Aucun job trouvé.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from django.db.models import Avg, Count
 from jobRecord.models import JobRecord
+from .Serializer import JobRecordSerializer
+from rest_framework import viewsets
+
+class JobRecordViewSet(viewsets.ModelViewSet):
+    queryset = JobRecord.objects.all()
+    serializer_class = JobRecordSerializer
 
 def stats_view(request):
     total_jobs = JobRecord.objects.count()

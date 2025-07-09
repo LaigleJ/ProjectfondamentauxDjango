@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liste des métiers</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9faff;
+            color: #333;
+            margin: 40px auto;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            background: #3498db;
+            color: white;
+            padding: 12px 18px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(52, 152, 219, 0.4);
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li:hover {
+            background: #2980b9;
+            cursor: pointer;
+        }
+        li.empty {
+            background: #e74c3c;
+            cursor: default;
+            box-shadow: none;
+        }
+        .btn {
+            background-color: #2ecc71;
+            border: none;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des métiers</h1>
+    <ul>
+      {% for title in titles %}
+        <li>
+          {{ title }}
+          <a href="{% url 'feedbacks_for_job_title' job_title=title %}" class="btn">Voir feedbacks</a>
+        </li>
+      {% empty %}
+        <li class="empty">Aucun métier trouvé.</li>
+      {% endfor %}
+    </ul>
+</body>
+</html>

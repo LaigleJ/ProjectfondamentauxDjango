@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jobRecord',
-    'Feedback',  # Assurez-vous que l'application feedback est ajoutée ici
+    'Feedback',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -1,13 +1,14 @@
 from django.urls import path
-from .views import feedback_list, feedback_detail, feedback_add, job_list, feedbacks_for_job_title, feedbacks_grouped_by_job_title, feedbacks_for_job
+from .views import average_ratings, feedback_add, feedbacks_for_job_title, job_titles_list
+from rest_framework.routers import DefaultRouter
+from .views import FeedbackViewSet
+
+router = DefaultRouter()
+router.register(r'feedback', FeedbackViewSet, basename='feedback')
 
 urlpatterns = [
-    path('', feedback_list, name='feedback_list'),  # liste tous les feedbacks
-    path('add/', feedback_add, name='feedback_add'),
-    path('<int:pk>/', feedback_detail, name='feedback_detail'),  # détail d’un feedback
-    path('jobs/', job_list, name='job_list'),
+    path('', job_titles_list, name='job_titles_list'),
     path('jobs/<str:job_title>/', feedbacks_for_job_title, name='feedbacks_for_job_title'),
-    path('feedbacks/by-job/', feedbacks_grouped_by_job_title, name='feedbacks_grouped_by_job'),
-    path('feedback/jobs/<str:title>/', feedbacks_for_job, name='feedbacks_for_job'),
-
-]
+    path('add/', feedback_add, name='feedback_add'),
+     path('averages/', average_ratings, name='average_ratings'),
+] + router.urls
