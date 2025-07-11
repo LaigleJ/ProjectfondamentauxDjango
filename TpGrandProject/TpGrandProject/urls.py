@@ -20,8 +20,10 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Frontend URLs
     path('', include('jobRecord.urls')),
-    path('api/', include('jobRecord.urls')),  
-    path('api/feedback', include('Feedback.urls')),  
     path('feedback/', include('Feedback.urls')), 
+    # API URLs
+    path('api/jobrecords/', include('jobRecord.urls')),  
+    path('api/feedback/', include('Feedback.urls')),  
 ]

@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>📊 Statistiques des Jobs</title>
+    <script>
+      fetch("/api/jobrecords/stats/", {
+        headers: {
+            Authorization: "Token 57b0a1bdd373571f9c94e39a31a1a276f2ad70c8",
+        },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.querySelector("#total_jobs").textContent = data.total_jobs;
+            document.querySelector("#average_salary").textContent = data.average_salary;
+            document.querySelector("#unique_countries").textContent = data.unique_countries;
+        })
+        .catch(error => {
+            console.error("Erreur fetch stats:", error);
+        });
+    </script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

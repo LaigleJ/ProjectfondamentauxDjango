@@ -1,6 +1,7 @@
 from rest_framework import serializers
-from .models import Feedback
 from jobRecord.Serializer import JobRecordSerializer, CandidateSerializer
+from .models import Feedback
+
 class FeedbackSerializer(serializers.ModelSerializer):
     job = JobRecordSerializer(read_only=True)
     author = CandidateSerializer(read_only=True)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, JobRecord, Contract, Skill, Industry, Candidate
+from jobRecord.models import JobRecord, Candidate, Industry, Skill, Contract, Category
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:

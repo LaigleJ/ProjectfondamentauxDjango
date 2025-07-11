@@ -40,7 +40,19 @@ INSTALLED_APPS = [
     'jobRecord',
     'Feedback',
     'rest_framework',
+    'rest_framework.authtoken', 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',  # pour front HTML
+        'rest_framework.authentication.TokenAuthentication',    # pour API token
+    ],
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

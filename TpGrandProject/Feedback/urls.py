@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import average_ratings, feedback_add, feedbacks_for_job_title, job_titles_list
 from rest_framework.routers import DefaultRouter
-from .views import FeedbackViewSet
+from .views import job_titles_list, feedbacks_for_job_title, feedback_add, average_ratings, FeedbackViewSet
+from Feedback.views import FeedbackViewSet
 
 router = DefaultRouter()
 router.register(r'feedback', FeedbackViewSet, basename='feedback')

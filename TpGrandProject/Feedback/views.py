@@ -1,11 +1,10 @@
-from http.client import HTTPResponse
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Feedback
-from .forms import FeedbackForm
-from jobRecord.models import JobRecord
+from django.shortcuts import render, redirect
 from django.db.models import Avg
-from .Serializer import FeedbackSerializer
 from rest_framework import viewsets
+from .models import Feedback, JobRecord
+from .Serializer import FeedbackSerializer
+from .forms import FeedbackForm
+
 
 class FeedbackViewSet(viewsets.ModelViewSet):
     queryset = Feedback.objects.all()
